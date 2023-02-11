@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  cockroachdb:
+    image: cockroachdb/cockroach:v19.2.5
+    command: start --insecure --store=attrs=ssd,path=/var/lib/cockroach/
+    restart: always
+    volumes:
+      - ./db:/var/lib/cockroach
+    expose:
+      - "8080"
+      - "26257"
+  nakama:
+    image: heroiclabs/nakama:3.4.0
+    entrypoint:
+      - "/bin/sh"
+      - "-ecx"
+      - > 
+          /nakama/nakama migrate up --database.address root@cockroachdb:26257 &&
+          exec /nakama/nakama --config /nakama/data/config.yml --database.address root@cockroachdb:26257
+    restart: always
+    links:
+      - "cockroachdb:db"
+    depends_on:
+      - cockroachdb
+    volumes:
+      - ./nakama_data:/nakama/data
+    expose:
+      - "7349"
+      - "7350"
+      - "7351"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7350/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  nginx:
+    image: jonasal/nginx-certbot:latest
+    environment:
+      CERTBOT_EMAIL: "zeinbenzenati@gmail.com"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "7349:7349"
+      - "7350:7350"
+      - "7351:7351"
+    volumes:
+      - nginx_secrets:/etc/letsencrypt
+      - ./nginx_conf.d:/etc/nginx/user_conf.d
+      - ./www/site_web:/usr/share/nginx/html
+    links:
+      - nakama
+    depends_on:
+      - nakama
+
+volumes:
+  nginx_secrets: {}
+
