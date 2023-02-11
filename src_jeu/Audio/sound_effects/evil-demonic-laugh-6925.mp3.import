@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/evil-demonic-laugh-6925.mp3-fb51158fdb0a81508f7880c37cf25219.mp3str"
+
+[deps]
+
+source_file="res://Audio/sound_effects/evil-demonic-laugh-6925.mp3"
+dest_files=[ "res://.import/evil-demonic-laugh-6925.mp3-fb51158fdb0a81508f7880c37cf25219.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
