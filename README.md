@@ -18,19 +18,19 @@ Transférer les fichiers présents dans le dossier src_serveur vers votre serveu
 
 ```bash
 scp src_serveur.zip user@ip_serveur:chemin_destination
-'''
+```
 
 Effectuez les configuration que vous souhaités pour customiser le déploiement (site web,  ports ....), puis dans le meme dossier que le fichier docker-compose.yml lancer la commande :
 
 ```bash
 docker-compose up
-'''
+```
 
 Ou en arrière plan
 
 ```bash
 docker-compose up -d
-'''
+```
 
 # APERÇU
 
