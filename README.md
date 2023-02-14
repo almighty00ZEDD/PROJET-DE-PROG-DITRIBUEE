@@ -36,5 +36,5 @@ docker-compose up -d
 
 # APERÇU
 
-Vous pouvez voir un aperçu de déploiement  ce projet à l'adresse : www.zedd-games.ga
+Vous pouvez voir un aperçu de déploiement de ce projet à l'adresse : www.zedd-games.ga
 Et jouer à la version html5 de notre jeu sur : www.zedd-games.ga/jeu.html 
