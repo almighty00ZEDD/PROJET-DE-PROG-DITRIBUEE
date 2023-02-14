@@ -16,17 +16,17 @@ src_serveur : les fichier et documents nécaissaires pour le déploiement dans u
 
 Transférer les fichiers présents dans le dossier src_serveur vers votre serveur ou machine virtuelle après l'avoir compressé, par example via une scp
 
-.. bash
+```bash
 scp src_serveur.zip user@ip_serveur:chemin_destination
 
 Effectuez les configuration que vous souhaités pour customiser le déploiement (site web,  ports ....), puis dans le meme dossier que le fichier docker-compose.yml lancer la commande :
 
-..bash
+```bash
 docker-compose up
 
 Ou en arrière plan
 
-..bash
+```bash
 docker-compose up -d
 
 # APERÇU
