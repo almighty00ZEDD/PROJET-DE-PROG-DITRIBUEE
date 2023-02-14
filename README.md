@@ -9,7 +9,9 @@ Notre projet est un jeu de tir multijoueur en ligne que nous avons appelé SHAPE
 Le repo se compose de trois dossier:
 
 Jeu : le jeu final, or il n'y a qu'a choisir la version adéquate pour son système d'exploitation pour le  lançer et jouer
-src_jeu : les fichier sources lançables sur godot engine pour voir et / ou reprendre le projet                           
+
+src_jeu : les fichier sources lançables sur godot engine pour voir et / ou reprendre le projet
+
 src_serveur : les fichier et documents nécaissaires pour le déploiement dans un serveur
 
 # UTILISATION
